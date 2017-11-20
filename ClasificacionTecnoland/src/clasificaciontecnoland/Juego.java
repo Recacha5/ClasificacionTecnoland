@@ -22,9 +22,6 @@ public class Juego {
         
     }
 
-    public Juego() {
-    }
-
     public Jugador[] ganadores(){
         
         Jugador vGanadores[] = new Jugador[4];
@@ -49,7 +46,7 @@ public class Juego {
         return vGanadores;
     }
     
-    public boolean anadirParticipante(Jugador[] jugador){
+    public boolean anadirParticipante(){
         
         String nombre;
         int edad, cantidad;
@@ -73,7 +70,7 @@ public class Juego {
         return false;
     }
     
-    public boolean ponerPuntosJugador(int puntos, String nombreJugador){
+    public boolean ponerPuntosJugador(){
         
         String nombre;
         int cantidad;
