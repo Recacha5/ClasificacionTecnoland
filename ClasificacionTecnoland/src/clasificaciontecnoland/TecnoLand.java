@@ -5,49 +5,73 @@
  */
 package clasificaciontecnoland;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Alex Recacha
  */
 public class TecnoLand {
-    
+    Scanner leer = new Scanner(System.in);
     private int edicion;
     private Juego[] vJuegos;
 
     public TecnoLand(int edicion) {
         this.edicion = edicion;
+        this. vJuegos = new Juego[3];
+    }
+
+    public String verJuegos(){
+        String aux="";
+        
+        for (Juego a:vJuegos){
+            if (a!=null){
+            aux += a + "\n";
+            }
+        }
+        return aux;
     }
     
-    
+    public Juego seleccionarJuego(String nombreJuego){
+        
+        int posicion = 0;
+        
+        for (int i = 0; i < vJuegos.length; i++) {
+            
+            if (vJuegos[i].getNombre().equalsIgnoreCase(nombreJuego)) {
+                posicion = i;
+            }
+        }
+        return vJuegos[posicion];
+    }
 
-    /**
-     * @return the edicion
-     */
+    public boolean anadirJuego(){
+        
+        for (int i = 0; i < vJuegos.length; i++) {
+                
+            if (vJuegos[i] == null) {
+                System.out.println("Dime el nombre del juego");
+                vJuegos[i] = new Juego (leer.nextLine());
+                return true;
+            }
+        }
+        return false;
+    }
+    
     public int getEdicion() {
         return edicion;
     }
 
-    /**
-     * @param edicion the edicion to set
-     */
     public void setEdicion(int edicion) {
         this.edicion = edicion;
     }
 
-    /**
-     * @return the vJuegos
-     */
     public Juego[] getvJuegos() {
         return vJuegos;
     }
 
-    /**
-     * @param vJuegos the vJuegos to set
-     */
     public void setvJuegos(Juego[] vJuegos) {
         this.vJuegos = vJuegos;
     }
-    
-    
-    
+
 }

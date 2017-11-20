@@ -20,49 +20,35 @@ public class Jugador {
         this.nombre = nombre;
         this.edad = edad;
     }
-
+    
     public Jugador(int puntuacion) {
         this.puntuacion = puntuacion;
     }
-    
-    /**
-     * @return the nombre
-     */
+
+    public Jugador(String nombre) {
+        this.nombre = nombre;
+    }
+
     public String getNombre() {
         return nombre;
     }
 
-    /**
-     * @param nombre the nombre to set
-     */
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    /**
-     * @return the edad
-     */
     public int getEdad() {
         return edad;
     }
 
-    /**
-     * @param edad the edad to set
-     */
     public void setEdad(int edad) {
         this.edad = edad;
     }
 
-    /**
-     * @return the puntuacion
-     */
     public int getPuntuacion() {
         return puntuacion;
     }
 
-    /**
-     * @param puntuacion the puntuacion to set
-     */
     public void setPuntuacion(int puntuacion) {
         this.puntuacion = puntuacion;
     }
@@ -71,6 +57,6 @@ public class Jugador {
     public String toString() {
         return "Nombre: " + nombre + "\n" +
                "Edad: " + edad + "\n" +
-               "Puntuación: " + puntuacion;
+               "Puntuación: " + puntuacion +"\n\n";
     }
 }

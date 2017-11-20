@@ -21,7 +21,10 @@ public class Juego {
         this.participante = new Jugador[5];
         
     }
-    
+
+    public Juego() {
+    }
+
     public Jugador[] ganadores(){
         
         Jugador vGanadores[] = new Jugador[4];
@@ -54,14 +57,14 @@ public class Juego {
         cantidad = leer.nextInt();
         
         for (int i = 0; i < cantidad; i++) {
-            
+
             System.out.println("Dime el nombre de un jugador");
             nombre = leer.nextLine().trim();
             System.out.println("Dime la edad de " + nombre);
             edad = leer.nextInt();
             
             for (int j = 0; j < participante.length; j++) {
-                if (participante[i] != new Jugador (nombre, edad)) {
+                if (participante[i] == null) {
                     participante[i] = new Jugador (nombre, edad);
                     return true;
                 }
@@ -72,39 +75,47 @@ public class Juego {
     
     public boolean ponerPuntosJugador(int puntos, String nombreJugador){
         
-        
-        
-        //Devolver true si se han añadido correctamente
-        //False si no se han podido añadir por no encontrar el jugador
+        String nombre;
+        int cantidad;
+        System.out.println("Dime a qué jugador vas a añadir puntuación");
+        nombre = leer.nextLine().trim();
+        System.out.println("Dime cuántos puntos vas a añadirle a: " + nombre);
+        cantidad = leer.nextInt();
+        for (int i = 0; i < participante.length; i++) {
+
+            if (participante[i].getNombre().equalsIgnoreCase(nombre)) {
+                participante[i].setPuntuacion(cantidad);
+                return true;
+            }
+        }
         return false;
     }
-    
-    /**
-     * @return the nombre
-     */
+
     public String getNombre() {
         return nombre;
     }
 
-    /**
-     * @param nombre the nombre to set
-     */
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    /**
-     * @return the participante
-     */
     public Jugador[] getParticipante() {
         return participante;
     }
 
-    /**
-     * @param participante the participante to set
-     */
     public void setParticipante(Jugador[] participante) {
         this.participante = participante;
     }
 
+    
+    public String verJugadores() {
+
+        String aux="";
+        for (Jugador a:participante){
+            if (a!=null){
+            aux+= a.toString();
+            }
+        }
+        return aux;
+    }
 }
