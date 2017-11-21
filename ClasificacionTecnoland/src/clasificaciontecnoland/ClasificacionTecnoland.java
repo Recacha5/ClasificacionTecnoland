@@ -26,7 +26,7 @@ public class ClasificacionTecnoland {
             opcion = leer.nextInt();
             switch (opcion){
                 
-                case 1: tecnoland.verJuegos();
+                case 1: System.out.println(tecnoland.verJuegos());
                         System.out.println("Pulsa enter para continuar...");
                         sc.nextLine();
                         break;
@@ -39,7 +39,9 @@ public class ClasificacionTecnoland {
                         sc.nextLine();
                         break;
                 case 3: System.out.println("Dime el juego que eliges");
-                        juegoSeleccionado = leer.nextLine().trim();
+                        Scanner leer1 = new Scanner(System.in);
+                        juegoSeleccionado = leer1.nextLine().trim();
+                        
                         while (opcion != 5){
                         Menus.MenuJuego();
                         System.out.println("Dime qué opción eliges");

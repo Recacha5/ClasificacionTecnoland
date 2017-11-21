@@ -32,7 +32,7 @@ public class TecnoLand {
         return aux;
     }
     
-    public void seleccionarJuego(String nombreJuego){
+    public Juego seleccionarJuego(String nombreJuego){
         
         int posicion = 0;
         
