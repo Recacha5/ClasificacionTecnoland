@@ -26,7 +26,7 @@ public class TecnoLand {
         
         for (Juego a:vJuegos){
             if (a!=null){
-            aux += a + "\n";
+            aux += a.toString() + "\n";
             }
         }
         return aux;
@@ -38,11 +38,11 @@ public class TecnoLand {
         
         for (int i = 0; i < vJuegos.length; i++) {
             
-            if (vJuegos[i].getNombre().equalsIgnoreCase(nombreJuego)) {
-                posicion = i;
+            if (vJuegos[i] != null && vJuegos[i].getNombre().equalsIgnoreCase(nombreJuego) ) {
+                return vJuegos[i];
             }
         }
-        return vJuegos[posicion];
+       return null;
     }
 
     public boolean anadirJuego(){
