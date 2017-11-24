@@ -11,6 +11,8 @@ package clasificaciontecnoland;
  */
 public class Menus {
     
+    //El menu tiene que devolver el numero de opción y se muestra hasta que sea válida
+    //controlar errores string
     public static void Menu(){
         
         System.out.println("----------------");

@@ -41,6 +41,7 @@ public class ClasificacionTecnoland {
                 case 3: System.out.println("Dime el juego que eliges");
                         Scanner leer1 = new Scanner(System.in);
                         juegoSeleccionado = leer1.nextLine().trim();
+                        
                         if (tecnoland.seleccionarJuego(juegoSeleccionado) != null){
                             while (opcion != 5){
                                 System.out.println("Juego seleccionado correctamente");
@@ -69,7 +70,7 @@ public class ClasificacionTecnoland {
                                                 int posicion=1;
                                                 for (int i = 0; i < vGanadores.length; i++) {
                                                     if (vGanadores[i].getNombre() != null){
-                                                        System.out.println("Posicion: " + posicion + "\n" + vGanadores[i]);
+                                                        System.out.println("Posicion: " + posicion + "\n" + vGanadores[i].toString());
                                                         posicion++;
                                                     }
                                                 }
@@ -90,7 +91,7 @@ public class ClasificacionTecnoland {
                         break;
                 case 4: System.out.println("Pulsa enter para continuar...");
                         sc.nextLine();
-                        opcion = 4;
+                       // opcion = 4;
                         break;
             }
         }

@@ -30,20 +30,21 @@ public class Juego {
         for (int i = 0; i < vGanadores.length; i++) {
             vGanadores[i] = new Jugador();
         }
-        for (int i = 1; i < vGanadores.length; i++) {
+        
+        for (int i = 0; i < participante.length; i++) {
             if (participante[i] != null && vGanadores[0].getPuntuacion()<participante[i].getPuntuacion()){
-                vGanadores[1] = vGanadores[0];
+                //vGanadores[1] = vGanadores[0];
                 vGanadores[0] = participante[i];
             }
         }
-        for (int i = 1; i < vGanadores.length; i++) {
-            if (participante[i] != null && participante[i]!=vGanadores[0] && vGanadores[1].getPuntuacion()<participante[i].getPuntuacion() && vGanadores[0].getPuntuacion()>participante[i].getPuntuacion()){
-                vGanadores[2] = vGanadores[1];
+        for (int i = 0; i < participante.length; i++) {
+            if (participante[i] != null &&  vGanadores[1].getPuntuacion()<participante[i].getPuntuacion() && vGanadores[0].getPuntuacion()>participante[i].getPuntuacion()){
+               // vGanadores[2] = vGanadores[1];
                 vGanadores[1] = participante[i];
             }
         }
-        for (int i = 1; i < vGanadores.length; i++) {
-            if (participante[i] != null && participante[i]!=vGanadores[0] && participante[i]!=vGanadores[1] && vGanadores[2].getPuntuacion()<participante[i].getPuntuacion() && vGanadores[1].getPuntuacion()>participante[i].getPuntuacion()){
+        for (int i = 0; i < participante.length; i++) {
+            if (participante[i] != null && vGanadores[2].getPuntuacion()<participante[i].getPuntuacion() && vGanadores[1].getPuntuacion()>participante[i].getPuntuacion()){
                 vGanadores[2] = participante[i];
             }
         }
@@ -74,14 +75,17 @@ public class Juego {
         
         String nombre;
         int cantidad;
+        int puntos;
         System.out.println("Dime a qué jugador vas a añadir puntuación");
         nombre = leer1.nextLine().trim();
         System.out.println("Dime cuántos puntos vas a añadirle a: " + nombre);
         cantidad = leer.nextInt();
+        
         for (int i = 0; i < participante.length; i++) {
 
             if (participante[i] != null && participante[i].getNombre().equalsIgnoreCase(nombre)) {
-                participante[i].setPuntuacion(cantidad);
+                puntos = participante[i].getPuntuacion();
+                participante[i].setPuntuacion(cantidad+puntos);
                 return true;
             }
         }
